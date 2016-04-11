@@ -1,3 +1,8 @@
+'use strict';
+
+var Tweenable = require('shifty');
+var _ = require('lodash');
+
 // REKAPI-GLOBALS
 // These are global in development, but get wrapped in a closure at build-time.
 
@@ -5,8 +10,6 @@
 if (typeof REKAPI_DEBUG === 'undefined') {
   REKAPI_DEBUG = true;
 }
-
-var rekapiModules = [];
 
 /*!
  * Fire an event bound to a Rekapi.
@@ -43,10 +46,7 @@ function noop () {
   // NOOP!
 }
 
-var rekapiCore = function (root, _, Tweenable) {
-
-  'use strict';
-
+export default function () {
   // CONSTANTS
   //
   var UPDATE_TIME = 1000 / 60;
@@ -847,7 +847,4 @@ var rekapiCore = function (root, _, Tweenable) {
       ,'updatePlayState': updatePlayState
     };
   }
-
-  root.Rekapi = Rekapi;
-
 };

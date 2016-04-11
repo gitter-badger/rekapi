@@ -9,6 +9,7 @@
     "recalculateAnimationLength": true,
     "rekapiCore": true,
     "rekapiModules": true,
+    "require": true,
     "define": true,
     "noop": true,
     "_": true
@@ -20,6 +21,7 @@
   "curly": true,
   "eqeqeq": true,
   "eqnull": true,
+  "esversion": 6,
   "immed": true,
   "lastsemic": true,
   "latedef": true,
