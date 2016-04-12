@@ -1,12 +1,14 @@
 'use strict';
 
-var Tweenable = require('shifty');
-var _ = require('lodash');
+import { Tweenable } from 'shifty';
+import { _ } from 'lodash';
+
 
 // REKAPI-GLOBALS
 // These are global in development, but get wrapped in a closure at build-time.
 
 // A hack for UglifyJS defines.  Gets removes in the build process.
+// FIXME: Find a better way to do this.
 if (typeof REKAPI_DEBUG === 'undefined') {
   REKAPI_DEBUG = true;
 }

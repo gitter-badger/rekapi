@@ -1,7 +1,8 @@
 'use strict';
 
-var Rekapi = require('../../src/rekapi.core');
-var _ = require('lodash');
+import { _ } from 'lodash';
+import { Rekapi } from '../../src/rekapi.core';
+
 var now = Rekapi.Tweenable.now;
 var vendorTransforms = [
   'transform'
@@ -1362,6 +1363,12 @@ function serializeActorStep (actor, opt_targetProp) {
 
   serializedProps.push('}');
   return serializedProps.join('');
+}
+
+// A hack for UglifyJS defines.  Gets removes in the build process.
+// FIXME: Find a better way to do this.
+if (typeof REKAPI_DEBUG === 'undefined') {
+  REKAPI_DEBUG = true;
 }
 
 // Exposes helper functions for unit testing.  Gets compiled away in build

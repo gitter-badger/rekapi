@@ -1,7 +1,7 @@
 'use strict';
 
-var Rekapi = require('../../src/rekapi.core');
-var _ = require('lodash');
+import { _ } from 'lodash';
+import { Rekapi } from '../../src/rekapi.core';
 
 // PRIVATE UTILITY FUNCTIONS
 //
