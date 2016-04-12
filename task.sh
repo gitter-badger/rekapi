@@ -6,7 +6,7 @@ BIN="./node_modules/.bin"
 export PATH=$BIN:$PATH
 
 function build () {
-  babel src -d tmp
+  babel src renderers -d tmp
   #grunt build
 }
 

@@ -29,6 +29,7 @@
   "laxcomma": true,
   "newcap": true,
   "noarg": true,
+  "node": true,
   "nomen": false,
   "plusplus": false,
   "sub": true,

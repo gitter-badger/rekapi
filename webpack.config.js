@@ -1,5 +1,9 @@
 module.exports = {
-  entry: './src/rekapi.core.js',
+  entry: [
+    './src/rekapi.core.js',
+    './renderers/canvas/rekapi.renderer.canvas.js',
+    './renderers/dom/rekapi.renderer.dom.js'
+  ],
   output: {
     filename: './dist/rekapi.js',
     libraryTarget: 'umd',
