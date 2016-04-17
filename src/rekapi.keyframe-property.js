@@ -2,7 +2,7 @@
 
 import Tweenable from 'shifty';
 import { _ } from 'lodash';
-import { Rekapi } from './rekapi.core';
+import { Rekapi, fireEvent } from './rekapi.core';
 
 var DEFAULT_EASING = 'linear';
 var interpolate = Tweenable.interpolate;
@@ -22,7 +22,7 @@ var interpolate = Tweenable.interpolate;
  * `Rekapi.KeyframeProperty` should be animated to.  Defaults to `"linear"`.
  * @constructor
  */
-Rekapi.KeyframeProperty = function (millisecond, name, value, opt_easing) {
+export function KeyframeProperty (millisecond, name, value, opt_easing) {
   this.id = _.uniqueId('keyframeProperty_');
   this.millisecond = millisecond;
   this.name = name;
@@ -32,8 +32,7 @@ Rekapi.KeyframeProperty = function (millisecond, name, value, opt_easing) {
   this.nextProperty = null;
 
   return this;
-};
-var KeyframeProperty = Rekapi.KeyframeProperty;
+}
 
 /**
  * Modify this `{{#crossLink "Rekapi.KeyframeProperty"}}{{/crossLink}}`.

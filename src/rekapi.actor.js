@@ -2,7 +2,7 @@
 
 import Tweenable from 'shifty';
 import { _ } from 'lodash';
-import { Rekapi, noop } from './rekapi.core';
+import { Rekapi, noop, fireEvent, recalculateAnimationLength } from './rekapi.core';
 
 var DEFAULT_EASING = 'linear';
 
@@ -266,7 +266,7 @@ function cleanupAfterKeyframeModification (actor) {
  *   `{{#crossLink "Rekapi/removeActor:method"}}{{/crossLink}}`.
  * @constructor
  */
-Rekapi.Actor = function (opt_config) {
+export function Actor (opt_config) {
 
   opt_config = opt_config || {};
 
@@ -288,9 +288,7 @@ Rekapi.Actor = function (opt_config) {
   });
 
   return this;
-};
-var Actor = Rekapi.Actor;
-export default Actor;
+}
 
 // Kind of a fun way to set up an inheritance chain.  `ActorMethods` prevents
 // methods on `Actor.prototype` from polluting `Tweenable`'s prototype with

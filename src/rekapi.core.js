@@ -3,8 +3,8 @@
 import Tweenable from 'shifty';
 import { _ } from 'lodash';
 
-import Actor from './rekapi.actor';
-import KeyframeProperty from './rekapi.keyframe-property';
+import { Actor } from './rekapi.actor';
+import { KeyframeProperty } from './rekapi.keyframe-property';
 
 /*!
  * Fire an event bound to a Rekapi.
@@ -14,7 +14,7 @@ import KeyframeProperty from './rekapi.keyframe-property';
  * dependency
  * @param {Object=} opt_data Optional event-specific data
  */
-function fireEvent (rekapi, eventName, _, opt_data) {
+export function fireEvent (rekapi, eventName, _, opt_data) {
   _.each(rekapi._events[eventName], function (handler) {
     handler(rekapi, opt_data);
   });
@@ -24,7 +24,7 @@ function fireEvent (rekapi, eventName, _, opt_data) {
  * @param {Rekapi} rekapi
  * @param {Underscore} _
  */
-function recalculateAnimationLength (rekapi, _) {
+export function recalculateAnimationLength (rekapi, _) {
   var actorLengths = [];
 
   _.each(rekapi._actors, function (actor) {
@@ -43,7 +43,7 @@ export function noop () {
 
 // CONSTANTS
 //
-var UPDATE_TIME = 1000 / 60;
+const UPDATE_TIME = 1000 / 60;
 
 /*!
  * Determines which iteration of the loop the animation is currently in.

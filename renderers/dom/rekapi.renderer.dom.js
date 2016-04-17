@@ -1,7 +1,7 @@
 'use strict';
 
 import { _ } from 'lodash';
-import { Rekapi } from '../../src/rekapi.core';
+import { Rekapi, fireEvent } from '../../src/rekapi.core';
 
 var now = Rekapi.Tweenable.now;
 var vendorTransforms = [
