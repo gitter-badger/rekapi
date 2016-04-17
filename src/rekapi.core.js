@@ -1,20 +1,10 @@
 'use strict';
 
-import { Tweenable } from 'shifty';
+import Tweenable from 'shifty';
 import { _ } from 'lodash';
 
 import Actor from './rekapi.actor';
 import KeyframeProperty from './rekapi.keyframe-property';
-
-
-// REKAPI-GLOBALS
-// These are global in development, but get wrapped in a closure at build-time.
-
-// A hack for UglifyJS defines.  Gets removes in the build process.
-// FIXME: Find a better way to do this.
-if (typeof REKAPI_DEBUG === 'undefined') {
-  REKAPI_DEBUG = true;
-}
 
 /*!
  * Fire an event bound to a Rekapi.
@@ -47,7 +37,7 @@ function recalculateAnimationLength (rekapi, _) {
 /*!
  * Does nothing.  Absolutely nothing at all.
  */
-function noop () {
+export function noop () {
   // NOOP!
 }
 
@@ -841,16 +831,14 @@ Rekapi.util = {};
 Rekapi.Actor = Actor;
 Rekapi.KeyframeProperty = KeyframeProperty;
 
-// Some hooks for testing.  Gets compiled away at build time.
-if (REKAPI_DEBUG) {
-  Rekapi._private = {
-    'calculateLoopPosition': calculateLoopPosition
-    ,'updateToCurrentMillisecond': updateToCurrentMillisecond
-    ,'updateToMillisecond': updateToMillisecond
-    ,'tick': tick
-    ,'determineCurrentLoopIteration': determineCurrentLoopIteration
-    ,'calculateTimeSinceStart': calculateTimeSinceStart
-    ,'isAnimationComplete': isAnimationComplete
-    ,'updatePlayState': updatePlayState
-  };
-}
+// FIXME: Remove this from the distributable build
+Rekapi._private = {
+  'calculateLoopPosition': calculateLoopPosition
+  ,'updateToCurrentMillisecond': updateToCurrentMillisecond
+  ,'updateToMillisecond': updateToMillisecond
+  ,'tick': tick
+  ,'determineCurrentLoopIteration': determineCurrentLoopIteration
+  ,'calculateTimeSinceStart': calculateTimeSinceStart
+  ,'isAnimationComplete': isAnimationComplete
+  ,'updatePlayState': updatePlayState
+};

@@ -1,8 +1,8 @@
 'use strict';
 
-import { Tweenable } from 'shifty';
+import Tweenable from 'shifty';
 import { _ } from 'lodash';
-import { Rekapi } from './rekapi.core';
+import { Rekapi, noop } from './rekapi.core';
 
 var DEFAULT_EASING = 'linear';
 

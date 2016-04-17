@@ -1365,41 +1365,32 @@ function serializeActorStep (actor, opt_targetProp) {
   return serializedProps.join('');
 }
 
-// A hack for UglifyJS defines.  Gets removes in the build process.
-// FIXME: Find a better way to do this.
-if (typeof REKAPI_DEBUG === 'undefined') {
-  REKAPI_DEBUG = true;
-}
-
-// Exposes helper functions for unit testing.  Gets compiled away in build
-// process.
-if (REKAPI_DEBUG) {
-  Rekapi._private.cssRenderer = {
-    'TRANSFORM_TOKEN': TRANSFORM_TOKEN
-    ,'VENDOR_TOKEN': VENDOR_TOKEN
-    ,'applyVendorBoilerplates': applyVendorBoilerplates
-    ,'applyVendorPropertyPrefixes': applyVendorPropertyPrefixes
-    ,'generateBoilerplatedKeyframes': generateBoilerplatedKeyframes
-    ,'generateCSSClass': generateCSSClass
-    ,'generateCSSAnimationProperties': generateCSSAnimationProperties
-    ,'generateActorKeyframes': generateActorKeyframes
-    ,'generateActorTrackSegment': generateActorTrackSegment
-    ,'combineTranfromProperties': combineTranfromProperties
-    ,'serializeActorStep': serializeActorStep
-    ,'generateAnimationNameProperty': generateAnimationNameProperty
-    ,'generateAnimationDurationProperty': generateAnimationDurationProperty
-    ,'generateAnimationDelayProperty': generateAnimationDelayProperty
-    ,'generateAnimationFillModeProperty': generateAnimationFillModeProperty
-    ,'generateAnimationTimingFunctionProperty':
-        generateAnimationTimingFunctionProperty
-    ,'generateAnimationIterationProperty': generateAnimationIterationProperty
-    ,'generateAnimationCenteringRule': generateAnimationCenteringRule
-    ,'simulateLeadingWait': simulateLeadingWait
-    ,'simulateTrailingWait': simulateTrailingWait
-    ,'canOptimizeKeyframeProperty': canOptimizeKeyframeProperty
-    ,'canOptimizeAnyKeyframeProperties': canOptimizeAnyKeyframeProperties
-    ,'generateOptimizedKeyframeSegment': generateOptimizedKeyframeSegment
-    ,'getActorCSS': getActorCSS
-    ,'transformFunctions': transformFunctions
-  };
-}
+// FIXME: Remove this from the distributable build
+Rekapi._private.cssRenderer = {
+  'TRANSFORM_TOKEN': TRANSFORM_TOKEN
+  ,'VENDOR_TOKEN': VENDOR_TOKEN
+  ,'applyVendorBoilerplates': applyVendorBoilerplates
+  ,'applyVendorPropertyPrefixes': applyVendorPropertyPrefixes
+  ,'generateBoilerplatedKeyframes': generateBoilerplatedKeyframes
+  ,'generateCSSClass': generateCSSClass
+  ,'generateCSSAnimationProperties': generateCSSAnimationProperties
+  ,'generateActorKeyframes': generateActorKeyframes
+  ,'generateActorTrackSegment': generateActorTrackSegment
+  ,'combineTranfromProperties': combineTranfromProperties
+  ,'serializeActorStep': serializeActorStep
+  ,'generateAnimationNameProperty': generateAnimationNameProperty
+  ,'generateAnimationDurationProperty': generateAnimationDurationProperty
+  ,'generateAnimationDelayProperty': generateAnimationDelayProperty
+  ,'generateAnimationFillModeProperty': generateAnimationFillModeProperty
+  ,'generateAnimationTimingFunctionProperty':
+      generateAnimationTimingFunctionProperty
+  ,'generateAnimationIterationProperty': generateAnimationIterationProperty
+  ,'generateAnimationCenteringRule': generateAnimationCenteringRule
+  ,'simulateLeadingWait': simulateLeadingWait
+  ,'simulateTrailingWait': simulateTrailingWait
+  ,'canOptimizeKeyframeProperty': canOptimizeKeyframeProperty
+  ,'canOptimizeAnyKeyframeProperties': canOptimizeAnyKeyframeProperties
+  ,'generateOptimizedKeyframeSegment': generateOptimizedKeyframeSegment
+  ,'getActorCSS': getActorCSS
+  ,'transformFunctions': transformFunctions
+};
